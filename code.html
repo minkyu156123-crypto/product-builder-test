@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STYLIST AI - Your Personal AI Concierge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #faf9fe;
+            color: #1a1b1f;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for minimalist feel */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c7c6ca;
+            border-radius: 10px;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(250, 249, 254, 0) 0%, rgba(250, 249, 254, 1) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#faf9fe",
+                        "surface-tint": "#5f5e60",
+                        "surface-container-highest": "#e3e2e7",
+                        "inverse-on-surface": "#f1f0f5",
+                        "inverse-primary": "#c8c6c8",
+                        "background": "#faf9fe",
+                        "on-tertiary-fixed-variant": "#822800",
+                        "primary-container": "#2c2c2e",
+                        "outline-variant": "#c7c6ca",
+                        "surface": "#faf9fe",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#e4e2e4",
+                        "on-primary-fixed": "#1b1b1d",
+                        "on-tertiary-container": "#ea6f42",
+                        "outline": "#77777b",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#474743",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#c8c6c8",
+                        "on-surface": "#1a1b1f",
+                        "surface-container-low": "#f4f3f8",
+                        "on-tertiary-fixed": "#380c00",
+                        "secondary-fixed-dim": "#c9c6c2",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dad9df",
+                        "inverse-surface": "#2f3034",
+                        "on-secondary-fixed": "#1c1c19",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#949395",
+                        "surface-container-high": "#e9e7ed",
+                        "tertiary-fixed": "#ffdbcf",
+                        "secondary": "#5f5e5b",
+                        "on-surface-variant": "#46464a",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "surface-variant": "#e3e2e7",
+                        "on-background": "#1a1b1f",
+                        "secondary-container": "#e5e2dd",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeedf3",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#656461",
+                        "tertiary": "#320a00",
+                        "on-primary-fixed-variant": "#474649",
+                        "tertiary-container": "#551700",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e5e2dd",
+                        "primary": "#171819"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xl": "64px",
+                        "base": "8px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "container-max": "1200px",
+                        "lg": "40px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["DM Sans"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["DM Sans"],
+                        "display-lg": ["DM Sans"],
+                        "headline-lg": ["DM Sans"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md bg-surface">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky z-50 border-b border-outline-variant/10">
+<div class="flex items-center justify-between px-gutter h-16 w-full max-w-container-max mx-auto">
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-primary-fixed">
+                STYLIST AI
+            </div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden hover:opacity-80 transition-opacity active:scale-95 transition-transform cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A clean, professional headshot of a stylish person in a minimalist art gallery setting, shot with soft natural light, reflecting a modern and fashion-forward persona. The image follows a high-key, neutral color palette with sophisticated tonal shifts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk6AgUbW2w1ewVQSSq1CHcOUbyxFni5rDhh7aReto9QWi-blAguvH59xgW87HyG1ZJ0UYDP-YkJErUsZ3U2tZtjXM-JXRoFhQ6-z34jNsGlZGHIvmeWwOiNwYtoTnhUoOhE3pFZxzbuWb58hfw79CpKm3aDMx0wlD4lSexsAb7FaRthBP6wj8xkxooi2jodZkoErpJuNGMbpl-4jURUDBsi_MsGhc8DaOO-DbfuTDFyIzHzlLsco94"/>
+</div>
+</div>
+</header>
+<main class="flex-grow pb-xl">
+<!-- Hero Section -->
+<section class="relative w-full h-[85vh] md:h-[90vh] overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnE59sbmMSrJzbcx4jaT8XYUpaV_ZTUtM-YvOgRj5WfXKjgGTMZTsoq1BiwQxLxGycfwNFW-T28wlKI08UvWd1rA2PmpWoXoI4Epz2Lt4uimdkdhHK_d_xeFG0Khm8moMbgf4rDptw2HTDQFcBW1IbrPJ-oMz7D71BhA5ZYXwHcaygKaLKTArdSCTmasonWHHdeOuKUpKUFo0oWxBjUlHxgtoCzMIyOLYXgl9p6DvxCJTGaJBJobWK')"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative h-full flex flex-col justify-end items-center px-gutter pb-xl text-center max-w-container-max mx-auto">
+<div class="space-y-md max-w-2xl">
+<h1 class="font-display-lg text-display-lg md:text-[64px] text-primary leading-none">
+                        Your AI Stylist
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto">
+                        Personalized style recommendations based on your unique body and taste.
+                    </p>
+<div class="pt-md">
+<button class="bg-primary text-white font-label-md text-label-md px-xl py-4 hover:opacity-90 transition-all active:scale-95 uppercase tracking-widest">
+                            Get Started
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Bento Grid (How It Works) -->
+<section class="max-w-container-max mx-auto px-gutter py-xl">
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tighter">How it works</h2>
+<div class="w-12 h-0.5 bg-on-tertiary-container mt-xs"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-base md:gap-md">
+<!-- Card 1: Vision -->
+<div class="md:col-span-7 bg-white border border-outline-variant/10 p-md flex flex-col justify-between group overflow-hidden relative">
+<div class="z-10">
+<span class="font-label-sm text-label-sm text-on-tertiary-container uppercase mb-xs block">Step 01</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Visual Identity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                            Our AI analyzes your photos and existing wardrobe to understand your silhouette and aesthetic preferences.
+                        </p>
+</div>
+<div class="mt-md h-48 w-full bg-surface-container-low rounded overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist top-down view of organized fashion items like a denim jacket, neutral trousers, and accessories laid out on a light beige concrete floor. High-end editorial photography with sharp details and soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA65W__syZHLQpIFOIMKKxMXszblquqYEEyIHZxqPkHnBPErgM1Spv7XoOV7Jeh3E1vTDf8XNBCAbaJpevtfn0hWyL3uPPRPe4r1oI4S99O8_Gl_HV7HvADudvyy6z9f1IqaaqBhvwMToseAXqqEZ30e5jk8e0wqsvGh8AoC_nKFqy8zH2GPp5So0GyxOenaJWA8P038hat6Vzfy5og_luZ24TD4h8nD4mg1oyyu1wfjSANdH5Z6wdQ"/>
+</div>
+</div>
+<!-- Card 2: Curation -->
+<div class="md:col-span-5 bg-surface-container-low border border-outline-variant/10 p-md flex flex-col group">
+<div class="flex-grow">
+<span class="font-label-sm text-label-sm text-on-tertiary-container uppercase mb-xs block">Step 02</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Smart Curation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Receive daily lookbooks tailored to your calendar, the weather, and your style goals.
+                        </p>
+</div>
+<div class="mt-xl text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-4xl">auto_awesome</span>
+<span class="font-label-md text-label-md tracking-widest uppercase">Personalized Engine</span>
+</div>
+</div>
+<!-- Card 3: Feedback Loop -->
+<div class="md:col-span-4 bg-primary text-white p-md flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-display-lg mb-md" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h3 class="font-headline-md text-headline-md mb-sm">Continuous Learning</h3>
+<p class="font-label-sm text-label-sm opacity-80 uppercase tracking-widest">The more you wear, the better it knows you.</p>
+</div>
+<!-- Card 4: Action -->
+<div class="md:col-span-8 bg-white border border-outline-variant/10 p-md flex flex-col md:flex-row gap-md items-center group">
+<div class="md:w-1/2">
+<span class="font-label-sm text-label-sm text-on-tertiary-container uppercase mb-xs block">Step 03</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Effortless Shopping</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                            Instantly find and buy the missing pieces for your perfect look with curated shopping links.
+                        </p>
+<button class="border border-primary text-primary font-label-md text-label-md px-md py-3 hover:bg-primary hover:text-white transition-all uppercase tracking-widest">
+                            Learn More
+                        </button>
+</div>
+<div class="md:w-1/2 w-full h-64 bg-surface-container-high rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a smartphone screen displaying a sleek fashion app with minimalist item cards and a 'Shop Now' button. The phone is held by a hand with clean aesthetic, set against a blurred background of a modern clothing boutique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDprA1_lMqzgBiIEHop6y8sAYQbyGJxnBuxXeyaC-_jkwoqqKi_RrJ3v_DkHNJaGkMRU-g3z_YtIwCxhXTJnNGUVhLiF1qc11RoqW14OY2hR5Zw6cz6yO1Tqm3FWZR5ahCjvD_8bnQr6zEfThM5auhWAHvkV-XF2_I7le6GOehqBepTzZIP_hLxwRkByOltOiQVGGolWdPyPoViCXvr7QyPRPSOeeufrodWwUnclTHv3ewS_dVi3qq5"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Atmosphere Section with WebGL Shader Placeholder -->
+<section class="relative w-full h-96 my-xl overflow-hidden bg-primary-container">
+
+<div class="relative z-10 h-full flex flex-col items-center justify-center text-white px-gutter text-center">
+<h2 class="font-display-lg text-display-lg mb-sm">Elevate Your Everyday.</h2>
+<p class="font-label-md text-label-md tracking-widest uppercase opacity-70">Style is a language. Let AI help you speak it.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-dim border-t border-outline-variant/10 pb-safe md:hidden">
+<div class="flex justify-around items-center py-base bg-surface dark:bg-surface-dim">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Style -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">styler</span>
+<span class="font-label-sm text-label-sm">Style</span>
+</a>
+<!-- AI Chat -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">AI Chat</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Desktop Navigation Cluster (Top Right - Desktop Only) -->
+<div class="hidden md:flex fixed right-gutter top-0 h-16 items-center gap-lg z-[60]">
+<nav class="flex items-center gap-md font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="hover:text-primary transition-colors pb-1 border-b-2 border-transparent" href="#">Style</a>
+<a class="hover:text-primary transition-colors pb-1 border-b-2 border-transparent" href="#">AI Chat</a>
+</nav>
+</div>
+<script>
+        // Micro-interactions and atmospheric effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    }
+                });
+            }, observerOptions);
+
+            // Add scroll reveal animations to sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-8');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>
